@@ -5,8 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Notas</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
 
 <body>
@@ -14,12 +14,12 @@
     include("navbar.php");
     ?>
     <div class="container mt-5">
-        <form class="row row-cols-lg-auto g-3 align-items-center" action="cadastrarNota.php">
+    <form class="row row-cols-lg-auto g-3 align-items-center" action="cadastrarNota.php" method="GET">
             <div class="col-12">
                 <label class="visually-hidden" for="inlineFormInputGroupUsername">Insira a nota:</label>
                 <div class="input-group">
-                    <input type="text" class="form-control" id="inlineFormInputGroupUsername" placeholder="Nota"
-                        name="nome">
+                    <input type="text" class="form-control" id="inlineFormInputGroupUsername"
+                        placeholder="Nota" name="valor">
                 </div>
             </div>
             <div class="col-12">
@@ -30,7 +30,7 @@
                     $comando = $conexao->prepare($comandoSQL);
                     $resultado = $comando->execute();
                     if ($resultado) {
-                        echo 'Mostrando Resultado: <br>';
+                        echo "<option disabled selected>Selecione a turma</option>";
                         while ($linha = $comando->fetch()) {
                             ?>
                             <option value="<?php echo $linha['id']; ?>"><?php echo $linha['nome'] ?></option>
@@ -41,14 +41,14 @@
                 </select>
             </div>
             <div class="col-12">
-                <select name="id" class="form-select" id="inlineFormSelectPref">
+                <select name="ida" class="form-select" id="inlineFormSelectPref">
                     <?php
                     include("conexao.php");
                     $comandoSQL = 'SELECT  id, nome FROM tblAlunos';
                     $comando = $conexao->prepare($comandoSQL);
                     $resultado = $comando->execute();
                     if ($resultado) {
-                        echo 'Mostrando Resulta do: <br>';
+                        echo "<option disabled selected>Selecione o aluno</option>";
                         while ($linha = $comando->fetch()) {
                             ?>
                             <option value="<?php echo $linha['id']; ?>"><?php echo $linha['nome'] ?></option>

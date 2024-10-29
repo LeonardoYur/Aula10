@@ -30,7 +30,7 @@
                     $comando = $conexao->prepare($comandoSQL);
                     $resultado = $comando->execute();
                     if ($resultado) {
-                        echo 'Mostrando Resultado: <br>';
+                        echo "<option disabled selected>Selecione a turma</option>";
                         while ($linha = $comando->fetch()) {
                             ?>
                             <option value="<?php echo $linha['id']; ?>"><?php echo $linha['nome'] ?></option>

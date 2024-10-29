@@ -15,6 +15,16 @@
       <li class="nav-item">
         <a class="nav-link" href="formularioNota.php">Cadastrar notas</a>
       </li>
+      <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Mostrar
+          </a>
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <li><a class="dropdown-item" href="mostrarAluno.php">Alunos</a></li>
+            <li><a class="dropdown-item" href="mostrarTurmas.php">Turmas</a></li>
+            <li><a class="dropdown-item" href="mostrarNotas.php">Notas</a></li>
+          </ul>
+        </li>
     </ul>
   </div>
 </nav>
